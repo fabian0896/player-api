@@ -34,7 +34,7 @@ class AuthService {
       name: user.name,
       email: user.email,
       sub: user.id,
-      scope: user.role,
+      role: user.role,
     };
     const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '15min' });
     const refreshToken = jwt.sign({ sub: user.id }, config.jwtRefreshSecret, { expiresIn: '30d' });
