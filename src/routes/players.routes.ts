@@ -1,12 +1,13 @@
 import express from 'express';
 import passport from 'passport';
 
-import PlayersService from '../services/players.service';
+import PlayersService, { PlayerCreate } from '../services/players.service';
 import validatorHandler from '../middlewares/validate.handler';
 import {
   createPlayerSchema,
   getPlayerSchema,
   updatePlayerSchema,
+  getPlayerPaginationSchema,
 } from '../schemas/player.schema';
 import validateRole from '../middlewares/validateRole.handler';
 
@@ -16,9 +17,12 @@ const router = express.Router();
 router.get('/',
   passport.authenticate('jwt', { session: false }),
   validateRole(['admin', 'editor', 'reader']),
+  validatorHandler(getPlayerPaginationSchema, 'query'),
   async (req, res, next) => {
+    const page = Number(req.query.page) || 1;
+    const size = Number(req.query.size) || 20;
     try {
-      const players = await PlayersService.findAll();
+      const players = await PlayersService.findAll(page, size);
       res.status(200).json(players);
     } catch (error) {
       next(error);
@@ -30,10 +34,14 @@ router.get('/:id',
   passport.authenticate('jwt', { session: false }),
   validateRole(['reader', 'editor', 'admin']),
   validatorHandler(getPlayerSchema, 'params'),
-  (req, res) => {
-    res.json({
-      id: req.params.id,
-    });
+  async (req, res, next) => {
+    try {
+      const playerId = Number(req.params.id);
+      const player = await PlayersService.findOne(playerId);
+      res.json(player);
+    } catch (error) {
+      next(error);
+    }
   });
 
 // create a player
@@ -41,9 +49,17 @@ router.post('/',
   passport.authenticate('jwt', { session: false }),
   validateRole(['editor', 'admin']),
   validatorHandler(createPlayerSchema, 'body'),
-  async (req, res) => {
+  async (req, res, next) => {
     // logic to create a player
-    res.json(req.body);
+    try {
+      const data: PlayerCreate = req.body;
+      const payload: any = req.user!;
+      const creatorId = Number(payload.sub);
+      const player = await PlayersService.create(data, creatorId);
+      res.status(201).json(player);
+    } catch (error) {
+      next(error);
+    }
   });
 
 // update a player
@@ -52,11 +68,15 @@ router.patch('/:id',
   validateRole(['editor', 'admin']),
   validatorHandler(getPlayerSchema, 'params'),
   validatorHandler(updatePlayerSchema, 'body'),
-  (req, res) => {
-    res.json({
-      id: req.params.id,
-      ...req.body,
-    });
+  async (req, res, next) => {
+    try {
+      const data: Partial<PlayerCreate> = req.body;
+      const playerId = Number(req.params.id);
+      const player = await PlayersService.update(playerId, data);
+      res.json(player);
+    } catch (error) {
+      next(error);
+    }
   });
 
 export default router;

@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from 'express';
-import { Boom } from '@hapi/boom';
+import { Boom, boomify } from '@hapi/boom';
 
 export const errorLogHandler: ErrorRequestHandler = (error, _req, _res, next) => {
   console.error(error);
@@ -13,8 +13,6 @@ export const errorHandler: ErrorRequestHandler = (error: Boom, _req, res, _next)
     res.status(output.statusCode).json(output.payload);
     return;
   }
-  res.status(500).json({
-    message: error.message,
-    stack: error.stack,
-  });
+  const boomError = boomify(error);
+  res.status(boomError.output.statusCode).json(boomError.output.payload);
 };
