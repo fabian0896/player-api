@@ -25,14 +25,26 @@ model User {
   @@map("users")
 }
 
+model Image {
+  id Int @id @default(autoincrement())
+  small String
+  medium String
+  large String
+  player Player @relation(fields: [playerId], references: [id])
+  playerId Int @map("player_id")
+
+  @@map("images")
+}
+
 model Player {
   id Int @id @default(autoincrement())
   firstName String @map("first_name")
   lastName String @map("last_name")
   birthday DateTime
-  picture String?
+  images Image?
   eps String
   email String
+  active Boolean @default(true)
   creator User @relation(fields: [creatorId], references: [id])
   creatorId Int @map("creator_id")
   createdAt DateTime @default(now()) @map("created_at")

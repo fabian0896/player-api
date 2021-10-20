@@ -1,6 +1,8 @@
 import express from 'express';
 import passport from 'passport';
+import boom from '@hapi/boom';
 
+import reziseImage from '../libs/reziseImage';
 import PlayersService, { PlayerCreate } from '../services/players.service';
 import validatorHandler from '../middlewares/validate.handler';
 import {
@@ -10,6 +12,7 @@ import {
   getPlayerPaginationSchema,
 } from '../schemas/player.schema';
 import validateRole from '../middlewares/validateRole.handler';
+import uploadHandler from '../middlewares/uploadImage.handler';
 
 const router = express.Router();
 
@@ -57,6 +60,27 @@ router.post('/',
       const creatorId = Number(payload.sub);
       const player = await PlayersService.create(data, creatorId);
       res.status(201).json(player);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+// add or update image of a player
+router.post('/:id/image',
+  validatorHandler(getPlayerSchema, 'params'),
+  uploadHandler('image'),
+  async (req, res, next) => {
+    if (!req.file) {
+      next(boom.badRequest('no file found'));
+      return;
+    }
+
+    try {
+      const playerId = Number(req.params.id);
+      await PlayersService.findOne(playerId);
+      const images = await reziseImage(req.file!.buffer);
+      const updatedPlayer = await PlayersService.addImage(playerId, images);
+      res.json(updatedPlayer);
     } catch (error) {
       next(error);
     }

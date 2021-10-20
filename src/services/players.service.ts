@@ -11,6 +11,12 @@ export type PlayerCreate = {
   cedula: number,
 }
 
+type Images = {
+  small: string
+  medium: string
+  large: string
+}
+
 class PlayersService {
   static async findAll(page: number, size: number = 20) {
     const players = await prisma.player.findMany({
@@ -18,6 +24,9 @@ class PlayersService {
       take: size,
       orderBy: {
         createdAt: 'desc',
+      },
+      include: {
+        images: true,
       },
     });
     return players;
@@ -30,6 +39,7 @@ class PlayersService {
       },
       include: {
         creator: true,
+        images: true,
       },
     });
 
@@ -65,6 +75,30 @@ class PlayersService {
       return player;
     } catch (error) {
       throw boom.notFound('player not found');
+    }
+  }
+
+  static async addImage(playerId: number, images: Images) {
+    try {
+      const player = await prisma.player.update({
+        where: { id: playerId },
+        data: {
+          images: {
+            create: {
+              large: images.large,
+              medium: images.medium,
+              small: images.small,
+            },
+          },
+        },
+        include: {
+          images: true,
+          creator: true,
+        },
+      });
+      return player;
+    } catch (error) {
+      throw boom.notFound('somthing goes worng');
     }
   }
 }
