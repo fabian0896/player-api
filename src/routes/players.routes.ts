@@ -103,4 +103,15 @@ router.patch('/:id',
     }
   });
 
+// generate carnet of a player
+router.get('/:id/carnet', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const user = await PlayersService.generateCarnet(Number(id));
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;

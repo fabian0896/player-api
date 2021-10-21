@@ -129,6 +129,11 @@ class PlayersService {
       throw boom.notFound('somthing goes worng');
     }
   }
+
+  static async generateCarnet(playerId: number) {
+    const user = await this.findOne(playerId);
+    return user;
+  }
 }
 
 export default PlayersService;
