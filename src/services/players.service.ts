@@ -1,5 +1,6 @@
 import boom from '@hapi/boom';
 import prisma from '../libs/prisma';
+import generateReport from '../libs/jsreport';
 
 export type PlayerCreate = {
   firstName: string,
@@ -132,7 +133,8 @@ class PlayersService {
 
   static async generateCarnet(playerId: number) {
     const user = await this.findOne(playerId);
-    return user;
+    const result = await generateReport(user);
+    return result;
   }
 }
 

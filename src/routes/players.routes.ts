@@ -1,3 +1,4 @@
+import { Readable } from 'stream';
 import express from 'express';
 import passport from 'passport';
 import boom from '@hapi/boom';
@@ -107,8 +108,9 @@ router.patch('/:id',
 router.get('/:id/carnet', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const user = await PlayersService.generateCarnet(Number(id));
-    res.json(user);
+    const carnet = await PlayersService.generateCarnet(Number(id));
+    const readeble = Readable.from(carnet);
+    readeble.pipe(res);
   } catch (error) {
     next(error);
   }
