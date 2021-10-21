@@ -1,0 +1,248 @@
+2021-10-20T21:04:38.942Z - info: Initializing jsreport@2.11.0 in development mode using configuration file: none
+2021-10-20T21:04:38.943Z - info: Searching for available extensions in /Users/imac/Desktop/Desktop/Platzi/player-api/
+2021-10-20T21:04:39.016Z - info: Extensions location cache not found, crawling directories
+2021-10-20T21:04:40.140Z - info: Found 35 extensions
+2021-10-20T21:04:40.290Z - debug: Writing extension locations cache to /var/folders/v4/14qvdkb51ps79yhw5mj955km0000gn/T/jsreport/core/locations.json
+2021-10-20T21:04:40.291Z - debug: Discovered 35 extensions
+2021-10-20T21:04:40.338Z - info: Setting dedicated-process (process based) strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2021-10-20T21:04:40.344Z - info: Using extension authentication@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authentication:2.6.1
+2021-10-20T21:04:40.374Z - debug: Extension authentication@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authentication:2.6.1 was disabled
+2021-10-20T21:04:40.374Z - info: Using extension cli@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-cli:2.2.5
+2021-10-20T21:04:40.380Z - info: Using extension debug@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-debug:2.1.3
+2021-10-20T21:04:40.381Z - info: Using extension express@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-express:2.8.1
+2021-10-20T21:04:40.424Z - info: Using extension freeze@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-freeze:2.0.0
+2021-10-20T21:04:40.426Z - info: Using extension handlebars@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-handlebars:2.1.0
+2021-10-20T21:04:40.428Z - info: Using extension import-export@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-import-export:2.1.1
+2021-10-20T21:04:40.461Z - info: Using extension jsrender@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-jsrender:2.1.1
+2021-10-20T21:04:40.462Z - info: Using extension tags@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-tags:2.5.0
+2021-10-20T21:04:40.464Z - info: Using extension templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-templates:2.4.0
+2021-10-20T21:04:40.466Z - info: Using extension authorization@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authorization:2.4.0
+2021-10-20T21:04:40.470Z - debug: Extension authorization@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authorization:2.4.0 was disabled
+2021-10-20T21:04:40.470Z - info: Using extension base@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-base:2.0.2
+2021-10-20T21:04:40.471Z - info: Using extension browser-client@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-browser-client:2.2.2
+2021-10-20T21:04:40.473Z - info: Using extension child-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-child-templates:1.4.0
+2021-10-20T21:04:40.477Z - info: Using extension chrome-pdf@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-chrome-pdf:1.10.0
+2021-10-20T21:04:40.543Z - debug: Chrome strategy is dedicated-process
+2021-10-20T21:04:40.544Z - info: Using extension data@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-data:2.4.0
+2021-10-20T21:04:40.544Z - info: Using extension docx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-docx:2.9.0
+2021-10-20T21:04:40.548Z - info: Using extension fs-store@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-fs-store:2.9.1
+2021-10-20T21:04:40.929Z - debug: Extension fs-store@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-fs-store:2.9.1 was disabled
+2021-10-20T21:04:40.929Z - info: Using extension licensing@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-licensing:2.2.3
+2021-10-20T21:04:40.933Z - info: Using extension pdf-utils@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-pdf-utils:1.10.1
+2021-10-20T21:04:41.004Z - info: Using extension pptx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-pptx:0.7.0
+2021-10-20T21:04:41.007Z - info: Using extension reports@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-reports:2.5.1
+2021-10-20T21:04:41.010Z - info: Using extension static-pdf@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-static-pdf:0.4.0
+2021-10-20T21:04:41.013Z - info: Using extension studio@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-studio:2.10.1
+2021-10-20T21:04:41.062Z - debug: studio request logs are enabled (flush interval: 2000)
+2021-10-20T21:04:41.064Z - info: Using extension text@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-text:2.0.0
+2021-10-20T21:04:41.065Z - info: Using extension version-control@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-version-control:1.6.0
+2021-10-20T21:04:41.155Z - info: Using extension assets@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-assets:1.7.0
+2021-10-20T21:04:41.171Z - info: Using extension html-to-xlsx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-html-to-xlsx:2.8.3
+2021-10-20T21:04:41.515Z - info: html-to-xlsx detected chrome as available html engine
+2021-10-20T21:04:41.515Z - info: Using extension scheduling@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-scheduling:2.5.0
+2021-10-20T21:04:41.558Z - info: Using extension scripts@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-scripts:2.6.0
+2021-10-20T21:04:41.560Z - info: Using extension studio-theme-dark@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-studio-theme-dark:0.3.0
+2021-10-20T21:04:41.562Z - info: Using extension xlsx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-xlsx:2.5.0
+2021-10-20T21:04:41.716Z - info: Using extension public-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-public-templates:2.2.0
+2021-10-20T21:04:41.721Z - debug: Extension public-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-public-templates:2.2.0 was disabled
+2021-10-20T21:04:41.721Z - info: Using extension resources@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-resources:2.1.0
+2021-10-20T21:04:41.722Z - info: Using extension sample-template@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-sample-template:2.6.1
+2021-10-20T21:04:41.723Z - info: Using memory provider for template store. The saved templates will be lost after restart
+2021-10-20T21:04:41.733Z - debug: studio default theme is: light
+2021-10-20T21:04:41.743Z - info: Creating default express app.
+2021-10-20T21:04:41.765Z - info: jsreport server successfully started on http port: 5488
+2021-10-20T21:04:41.767Z - info: Verifying license key free
+2021-10-20T21:04:41.767Z - info: Using free license
+2021-10-20T21:04:41.771Z - debug: Creating samples is disabled
+2021-10-20T21:04:41.772Z - info: reporter initialized
+2021-10-20T21:09:12.596Z - info: Initializing jsreport@2.11.0 in development mode using configuration file: none
+2021-10-20T21:09:12.597Z - info: Searching for available extensions in /Users/imac/Desktop/Desktop/Platzi/player-api/
+2021-10-20T21:09:12.672Z - info: Extensions location cache contains up to date information, skipping crawling in /Users/imac/Desktop/Desktop/Platzi/player-api/
+2021-10-20T21:09:12.688Z - info: Found 35 extensions
+2021-10-20T21:09:12.859Z - debug: Writing extension locations cache to /var/folders/v4/14qvdkb51ps79yhw5mj955km0000gn/T/jsreport/core/locations.json
+2021-10-20T21:09:12.866Z - debug: Discovered 35 extensions
+2021-10-20T21:09:13.010Z - info: Setting dedicated-process (process based) strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2021-10-20T21:09:13.035Z - info: Using extension authentication@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authentication:2.6.1
+2021-10-20T21:09:13.084Z - debug: Extension authentication@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authentication:2.6.1 was disabled
+2021-10-20T21:09:13.084Z - info: Using extension cli@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-cli:2.2.5
+2021-10-20T21:09:13.089Z - info: Using extension debug@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-debug:2.1.3
+2021-10-20T21:09:13.091Z - info: Using extension express@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-express:2.8.1
+2021-10-20T21:09:13.132Z - info: Using extension freeze@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-freeze:2.0.0
+2021-10-20T21:09:13.134Z - info: Using extension handlebars@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-handlebars:2.1.0
+2021-10-20T21:09:13.136Z - info: Using extension import-export@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-import-export:2.1.1
+2021-10-20T21:09:13.167Z - info: Using extension jsrender@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-jsrender:2.1.1
+2021-10-20T21:09:13.168Z - info: Using extension tags@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-tags:2.5.0
+2021-10-20T21:09:13.170Z - info: Using extension templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-templates:2.4.0
+2021-10-20T21:09:13.172Z - info: Using extension authorization@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authorization:2.4.0
+2021-10-20T21:09:13.175Z - debug: Extension authorization@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authorization:2.4.0 was disabled
+2021-10-20T21:09:13.176Z - info: Using extension base@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-base:2.0.2
+2021-10-20T21:09:13.177Z - info: Using extension browser-client@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-browser-client:2.2.2
+2021-10-20T21:09:13.179Z - info: Using extension child-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-child-templates:1.4.0
+2021-10-20T21:09:13.183Z - info: Using extension chrome-pdf@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-chrome-pdf:1.10.0
+2021-10-20T21:09:13.249Z - debug: Chrome strategy is dedicated-process
+2021-10-20T21:09:13.249Z - info: Using extension data@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-data:2.4.0
+2021-10-20T21:09:13.250Z - info: Using extension docx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-docx:2.9.0
+2021-10-20T21:09:13.253Z - info: Using extension fs-store@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-fs-store:2.9.1
+2021-10-20T21:09:13.365Z - debug: Extension fs-store@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-fs-store:2.9.1 was disabled
+2021-10-20T21:09:13.365Z - info: Using extension licensing@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-licensing:2.2.3
+2021-10-20T21:09:13.370Z - info: Using extension pdf-utils@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-pdf-utils:1.10.1
+2021-10-20T21:09:13.441Z - info: Using extension pptx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-pptx:0.7.0
+2021-10-20T21:09:13.444Z - info: Using extension reports@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-reports:2.5.1
+2021-10-20T21:09:13.446Z - info: Using extension static-pdf@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-static-pdf:0.4.0
+2021-10-20T21:09:13.449Z - info: Using extension studio@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-studio:2.10.1
+2021-10-20T21:09:13.497Z - debug: studio request logs are enabled (flush interval: 2000)
+2021-10-20T21:09:13.498Z - info: Using extension text@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-text:2.0.0
+2021-10-20T21:09:13.499Z - info: Using extension version-control@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-version-control:1.6.0
+2021-10-20T21:09:13.589Z - info: Using extension assets@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-assets:1.7.0
+2021-10-20T21:09:13.602Z - info: Using extension html-to-xlsx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-html-to-xlsx:2.8.3
+2021-10-20T21:09:13.940Z - info: html-to-xlsx detected chrome as available html engine
+2021-10-20T21:09:13.941Z - info: Using extension scheduling@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-scheduling:2.5.0
+2021-10-20T21:09:13.983Z - info: Using extension scripts@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-scripts:2.6.0
+2021-10-20T21:09:13.986Z - info: Using extension studio-theme-dark@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-studio-theme-dark:0.3.0
+2021-10-20T21:09:13.987Z - info: Using extension xlsx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-xlsx:2.5.0
+2021-10-20T21:09:14.140Z - info: Using extension public-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-public-templates:2.2.0
+2021-10-20T21:09:14.144Z - debug: Extension public-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-public-templates:2.2.0 was disabled
+2021-10-20T21:09:14.144Z - info: Using extension resources@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-resources:2.1.0
+2021-10-20T21:09:14.145Z - info: Using extension sample-template@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-sample-template:2.6.1
+2021-10-20T21:09:14.147Z - info: Using memory provider for template store. The saved templates will be lost after restart
+2021-10-20T21:09:14.157Z - debug: studio default theme is: light
+2021-10-20T21:09:14.166Z - info: Configuring routes for existing express app.
+2021-10-20T21:09:14.188Z - info: Using existing server instance.
+2021-10-20T21:09:14.189Z - info: Verifying license key free
+2021-10-20T21:09:14.189Z - info: Using free license
+2021-10-20T21:09:14.193Z - debug: Creating samples is disabled
+2021-10-20T21:09:14.194Z - info: reporter initialized
+2021-10-20T21:12:02.825Z - info: Initializing jsreport@2.11.0 in development mode using configuration file: none
+2021-10-20T21:12:02.826Z - info: Searching for available extensions in /Users/imac/Desktop/Desktop/Platzi/player-api/
+2021-10-20T21:12:02.899Z - info: Extensions location cache contains up to date information, skipping crawling in /Users/imac/Desktop/Desktop/Platzi/player-api/
+2021-10-20T21:12:02.913Z - info: Found 35 extensions
+2021-10-20T21:12:03.101Z - debug: Writing extension locations cache to /var/folders/v4/14qvdkb51ps79yhw5mj955km0000gn/T/jsreport/core/locations.json
+2021-10-20T21:12:03.107Z - debug: Discovered 35 extensions
+2021-10-20T21:12:03.253Z - info: Setting dedicated-process (process based) strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2021-10-20T21:12:03.279Z - info: Using extension authentication@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authentication:2.6.1
+2021-10-20T21:12:03.326Z - debug: Extension authentication@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authentication:2.6.1 was disabled
+2021-10-20T21:12:03.327Z - info: Using extension cli@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-cli:2.2.5
+2021-10-20T21:12:03.332Z - info: Using extension debug@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-debug:2.1.3
+2021-10-20T21:12:03.333Z - info: Using extension express@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-express:2.8.1
+2021-10-20T21:12:03.378Z - info: Using extension freeze@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-freeze:2.0.0
+2021-10-20T21:12:03.380Z - info: Using extension handlebars@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-handlebars:2.1.0
+2021-10-20T21:12:03.382Z - info: Using extension import-export@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-import-export:2.1.1
+2021-10-20T21:12:03.414Z - info: Using extension jsrender@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-jsrender:2.1.1
+2021-10-20T21:12:03.415Z - info: Using extension tags@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-tags:2.5.0
+2021-10-20T21:12:03.417Z - info: Using extension templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-templates:2.4.0
+2021-10-20T21:12:03.419Z - info: Using extension authorization@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authorization:2.4.0
+2021-10-20T21:12:03.422Z - debug: Extension authorization@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-authorization:2.4.0 was disabled
+2021-10-20T21:12:03.422Z - info: Using extension base@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-base:2.0.2
+2021-10-20T21:12:03.424Z - info: Using extension browser-client@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-browser-client:2.2.2
+2021-10-20T21:12:03.426Z - info: Using extension child-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-child-templates:1.4.0
+2021-10-20T21:12:03.430Z - info: Using extension chrome-pdf@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-chrome-pdf:1.10.0
+2021-10-20T21:12:03.498Z - debug: Chrome strategy is dedicated-process
+2021-10-20T21:12:03.499Z - info: Using extension data@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-data:2.4.0
+2021-10-20T21:12:03.499Z - info: Using extension docx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-docx:2.9.0
+2021-10-20T21:12:03.503Z - info: Using extension fs-store@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-fs-store:2.9.1
+2021-10-20T21:12:03.631Z - debug: Extension fs-store@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-fs-store:2.9.1 was disabled
+2021-10-20T21:12:03.632Z - info: Using extension licensing@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-licensing:2.2.3
+2021-10-20T21:12:03.635Z - info: Using extension pdf-utils@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-pdf-utils:1.10.1
+2021-10-20T21:12:03.708Z - info: Using extension pptx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-pptx:0.7.0
+2021-10-20T21:12:03.711Z - info: Using extension reports@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-reports:2.5.1
+2021-10-20T21:12:03.715Z - info: Using extension static-pdf@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-static-pdf:0.4.0
+2021-10-20T21:12:03.718Z - info: Using extension studio@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-studio:2.10.1
+2021-10-20T21:12:03.768Z - debug: studio request logs are enabled (flush interval: 2000)
+2021-10-20T21:12:03.769Z - info: Using extension text@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-text:2.0.0
+2021-10-20T21:12:03.770Z - info: Using extension version-control@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-version-control:1.6.0
+2021-10-20T21:12:03.869Z - info: Using extension assets@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-assets:1.7.0
+2021-10-20T21:12:03.883Z - info: Using extension html-to-xlsx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-html-to-xlsx:2.8.3
+2021-10-20T21:12:04.251Z - info: html-to-xlsx detected chrome as available html engine
+2021-10-20T21:12:04.251Z - info: Using extension scheduling@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-scheduling:2.5.0
+2021-10-20T21:12:04.294Z - info: Using extension scripts@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-scripts:2.6.0
+2021-10-20T21:12:04.296Z - info: Using extension studio-theme-dark@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-studio-theme-dark:0.3.0
+2021-10-20T21:12:04.298Z - info: Using extension xlsx@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-xlsx:2.5.0
+2021-10-20T21:12:04.459Z - info: Using extension public-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-public-templates:2.2.0
+2021-10-20T21:12:04.463Z - debug: Extension public-templates@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-public-templates:2.2.0 was disabled
+2021-10-20T21:12:04.463Z - info: Using extension resources@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-resources:2.1.0
+2021-10-20T21:12:04.464Z - info: Using extension sample-template@local:/Users/imac/Desktop/Desktop/Platzi/player-api/node_modules/jsreport-sample-template:2.6.1
+2021-10-20T21:12:04.466Z - info: Using memory provider for template store. The saved templates will be lost after restart
+2021-10-20T21:12:04.475Z - debug: studio default theme is: light
+2021-10-20T21:12:04.485Z - info: Configuring routes for existing express app.
+2021-10-20T21:12:04.506Z - info: Using existing server instance.
+2021-10-20T21:12:04.507Z - info: Verifying license key free
+2021-10-20T21:12:04.507Z - info: Using free license
+2021-10-20T21:12:04.511Z - debug: Creating samples is disabled
+2021-10-20T21:12:04.512Z - info: reporter initialized
+2021-10-20T21:12:15.161Z - debug: OData query on templates
+2021-10-20T21:12:15.165Z - debug: OData query on folders
+2021-10-20T21:12:15.170Z - debug: OData query on tags
+2021-10-20T21:12:15.171Z - debug: OData query on data
+2021-10-20T21:12:15.173Z - debug: OData query on assets
+2021-10-20T21:12:15.174Z - debug: OData query on xlsxTemplates
+2021-10-20T21:12:15.176Z - debug: OData query on scripts
+2021-10-20T21:12:15.186Z - debug: OData query on schedules
+2021-10-20T21:12:15.208Z - debug: OData query on settings
+2021-10-20T21:12:15.295Z - debug: OData query on templates
+2021-10-20T21:12:15.311Z - debug: OData query on settings
+2021-10-20T21:12:35.303Z - debug: Inserting samples
+2021-10-20T21:12:35.308Z - debug: Creating folder "samples" for sample entities
+2021-10-20T21:12:35.315Z - debug: Inserting sample entity Invoice (entitySet: folders)
+2021-10-20T21:12:35.318Z - debug: Inserting sample entity Sales (entitySet: folders)
+2021-10-20T21:12:35.321Z - debug: Inserting sample entity Orders (entitySet: folders)
+2021-10-20T21:12:35.324Z - debug: Inserting sample entity shared (entitySet: folders)
+2021-10-20T21:12:35.327Z - debug: Inserting sample entity invoice-data (entitySet: data)
+2021-10-20T21:12:35.333Z - debug: Inserting sample entity sales-data (entitySet: data)
+2021-10-20T21:12:35.335Z - debug: Inserting sample entity sales-main (entitySet: templates)
+2021-10-20T21:12:35.350Z - debug: Inserting sample entity invoice-main (entitySet: templates)
+2021-10-20T21:12:35.352Z - debug: Inserting sample entity orders-main (entitySet: templates)
+2021-10-20T21:12:35.354Z - debug: Inserting sample entity orders-header (entitySet: templates)
+2021-10-20T21:12:35.357Z - debug: Inserting sample entity invoice-styles.css (entitySet: assets)
+2021-10-20T21:12:35.363Z - debug: Inserting sample entity invoice-logo.png (entitySet: assets)
+2021-10-20T21:12:35.365Z - debug: Inserting sample entity sales-styles.css (entitySet: assets)
+2021-10-20T21:12:35.368Z - debug: Inserting sample entity global helpers.js (entitySet: assets)
+2021-10-20T21:12:35.371Z - debug: Inserting sample entity orders-styles.css (entitySet: assets)
+2021-10-20T21:12:35.374Z - debug: Inserting sample entity orders-script (entitySet: scripts)
+2021-10-20T21:12:35.396Z - debug: OData query on settings
+2021-10-20T21:12:35.410Z - debug: OData query on templates
+2021-10-20T21:12:35.415Z - debug: OData query on folders
+2021-10-20T21:12:35.417Z - debug: OData query on data
+2021-10-20T21:12:35.419Z - debug: OData query on assets
+2021-10-20T21:12:35.420Z - debug: OData query on scripts
+2021-10-20T21:12:35.421Z - debug: OData query on xlsxTemplates
+2021-10-20T21:12:35.426Z - debug: OData query on tags
+2021-10-20T21:12:35.431Z - debug: OData query on schedules
+2021-10-20T21:13:04.642Z - debug: OData query on data
+2021-10-20T21:13:05.426Z - debug: OData query on assets
+2021-10-20T21:13:06.360Z - debug: OData query on templates
+2021-10-20T21:13:07.855Z - info: Starting rendering request 1 (user: null)
+2021-10-20T21:13:07.856Z - info: Rendering template { name: invoice-main, recipe: chrome-pdf, engine: handlebars, preview: true }
+2021-10-20T21:13:07.858Z - debug: Inline data specified.
+2021-10-20T21:13:07.858Z - debug: Resources not defined for this template.
+2021-10-20T21:13:07.860Z - debug: Base url not specified, skipping its injection.
+2021-10-20T21:13:07.865Z - debug: Replaced assets ["invoice-styles.css","invoice-logo.png"]
+2021-10-20T21:13:07.865Z - debug: Rendering engine handlebars using dedicated-process strategy
+2021-10-20T21:13:08.430Z - debug: Compiled template not found in the cache, compiling
+2021-10-20T21:13:08.430Z - debug: Calculating item Website design; you should see this message in debug run
+2021-10-20T21:13:08.432Z - debug: Executing recipe chrome-pdf
+2021-10-20T21:13:12.194Z - debug: Converting with chrome HeadlessChrome/79.0.3945.0 using dedicated-process strategy
+2021-10-20T21:13:12.324Z - debug: Page request: GET (document) file:///var/folders/v4/14qvdkb51ps79yhw5mj955km0000gn/T/jsreport/autocleanup/254f2031-1b62-40cf-8aee-5536051c5d71-chrome-pdf.html
+2021-10-20T21:13:12.334Z - debug: Page request finished: GET (document) file:///var/folders/v4/14qvdkb51ps79yhw5mj955km0000gn/T/jsreport/autocleanup/254f2031-1b62-40cf-8aee-5536051c5d71-chrome-pdf.html
+2021-10-20T21:13:12.338Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYAAABoCAYAAAB8F707AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2...
+2021-10-20T21:13:12.339Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYAAABoCAYAAAB8F707AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2...
+2021-10-20T21:13:12.715Z - debug: Running chrome with params {"printBackground":true,"marginTop":"1cm","marginRight":"1cm","marginBottom":"1cm","marginLeft":"1cm","margin":{"top":"1cm","right":"1cm","bottom":"1cm","left":"1cm"}}
+2021-10-20T21:13:12.871Z - info: Rendering request 1 finished in 5016 ms
+2021-10-20T21:13:12.872Z - debug: Skipping storing report.
+2021-10-20T21:13:42.121Z - info: Starting rendering request 2 (user: null)
+2021-10-20T21:13:42.121Z - info: Rendering template { name: invoice-main, recipe: chrome-pdf, engine: handlebars, preview: true }
+2021-10-20T21:13:42.122Z - debug: Inline data specified.
+2021-10-20T21:13:42.122Z - debug: Resources not defined for this template.
+2021-10-20T21:13:42.124Z - debug: Base url not specified, skipping its injection.
+2021-10-20T21:13:42.127Z - debug: Replaced assets ["invoice-styles.css","invoice-logo.png"]
+2021-10-20T21:13:42.127Z - debug: Rendering engine handlebars using dedicated-process strategy
+2021-10-20T21:13:42.621Z - debug: Compiled template not found in the cache, compiling
+2021-10-20T21:13:42.622Z - debug: Calculating item Website design; you should see this message in debug run
+2021-10-20T21:13:42.625Z - debug: Executing recipe chrome-pdf
+2021-10-20T21:13:42.788Z - debug: Converting with chrome HeadlessChrome/79.0.3945.0 using dedicated-process strategy
+2021-10-20T21:13:42.921Z - debug: Page request: GET (document) file:///var/folders/v4/14qvdkb51ps79yhw5mj955km0000gn/T/jsreport/autocleanup/469df7f3-b811-4436-ad76-3baa9c96b96f-chrome-pdf.html
+2021-10-20T21:13:42.931Z - debug: Page request finished: GET (document) file:///var/folders/v4/14qvdkb51ps79yhw5mj955km0000gn/T/jsreport/autocleanup/469df7f3-b811-4436-ad76-3baa9c96b96f-chrome-pdf.html
+2021-10-20T21:13:42.935Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYAAABoCAYAAAB8F707AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2...
+2021-10-20T21:13:42.936Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYAAABoCAYAAAB8F707AAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2...
+2021-10-20T21:13:43.166Z - debug: Running chrome with params {"printBackground":true,"marginTop":"1cm","marginRight":"1cm","marginBottom":"1cm","marginLeft":"1cm","margin":{"top":"1cm","right":"1cm","bottom":"1cm","left":"1cm"}}
+2021-10-20T21:13:43.298Z - info: Rendering request 2 finished in 1176 ms
+2021-10-20T21:13:43.298Z - debug: Skipping storing report.

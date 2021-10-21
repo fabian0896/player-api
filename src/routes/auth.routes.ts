@@ -4,8 +4,9 @@ import boom from '@hapi/boom';
 import { User } from '@prisma/client';
 import AuthService from '../services/auth.service';
 import config from '../config';
-import { createUserSchema } from '../schemas/user.schema';
+import { inviteUserSchema, signupSchema } from '../schemas/user.schema';
 import validatorHandler from '../middlewares/validate.handler';
+import validateRole from '../middlewares/validateRole.handler';
 
 const router = express.Router();
 
@@ -63,11 +64,38 @@ router.post('/logout',
     });
   });
 
+router.post('/invite',
+  passport.authenticate('jwt', { session: false }),
+  validateRole(['admin']),
+  validatorHandler(inviteUserSchema, 'body'),
+  async (req, res, next) => {
+    const { email, role } = req.body;
+    try {
+      const inviteToken = await AuthService.createInviteToken(email, role);
+      // TODO
+      // enviar email de invitación con el token como query param
+      res.json({ inviteToken });
+    } catch (error) {
+      next(error);
+    }
+  });
+
 router.post('/signup',
-  validatorHandler(createUserSchema, 'body'),
-  (req, res) => {
-    const { body: data } = req;
-    res.json(data);
+  validatorHandler(signupSchema, 'body'),
+  async (req, res, next) => {
+    const {
+      email,
+      name,
+      password,
+      inviteToken,
+    } = req.body;
+
+    try {
+      const payload = await AuthService.signup(email, password, name, inviteToken);
+      res.status(200).json(payload);
+    } catch (error) {
+      next(error);
+    }
   });
 
 export default router;

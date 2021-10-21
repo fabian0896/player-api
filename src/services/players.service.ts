@@ -7,8 +7,9 @@ export type PlayerCreate = {
   birthday: Date,
   eps: string,
   email: string,
-  picture?: string
+  picture?: string,
   cedula: number,
+  phone: string,
 }
 
 type Images = {
@@ -26,7 +27,13 @@ class PlayersService {
         createdAt: 'desc',
       },
       include: {
-        images: true,
+        images: {
+          select: {
+            small: true,
+            medium: true,
+            large: true,
+          },
+        },
       },
     });
     return players;
@@ -38,7 +45,14 @@ class PlayersService {
         id: playerId,
       },
       include: {
-        creator: true,
+        creator: {
+          select: {
+            id: true,
+            name: true,
+            avatar: true,
+            role: true,
+          },
+        },
         images: true,
       },
     });
@@ -54,6 +68,7 @@ class PlayersService {
     const result = await prisma.player.create({
       data: {
         ...player,
+        birthday: new Date(player.birthday),
         creator: {
           connect: {
             id: creatorId,
@@ -92,8 +107,21 @@ class PlayersService {
           },
         },
         include: {
-          images: true,
-          creator: true,
+          images: {
+            select: {
+              small: true,
+              large: false,
+              medium: true,
+            },
+          },
+          creator: {
+            select: {
+              id: true,
+              name: true,
+              avatar: true,
+              role: true,
+            },
+          },
         },
       });
       return player;

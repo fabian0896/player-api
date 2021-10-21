@@ -13,11 +13,11 @@ generator client {
 model User {
   id Int @id @default(autoincrement())
   email String @unique
-  cedula Int @unique
   password String
   refreshToken String? @map("refresh_token")
   name String?
   role Role
+  avatar String?
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   players Player[]
@@ -40,7 +40,9 @@ model Player {
   id Int @id @default(autoincrement())
   firstName String @map("first_name")
   lastName String @map("last_name")
+  cedula Int @unique
   birthday DateTime
+  phone String
   images Image?
   eps String
   email String
