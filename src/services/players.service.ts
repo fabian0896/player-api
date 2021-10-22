@@ -1,6 +1,8 @@
 import boom from '@hapi/boom';
 import prisma from '../libs/prisma';
-import generateReport from '../libs/jsreport';
+// import generateReport from '../libs/jsreport';
+import cardRender from '../libs/cardRender';
+import sendGridEmail from '../libs/sendGrid';
 
 export type PlayerCreate = {
   firstName: string,
@@ -131,9 +133,13 @@ class PlayersService {
     }
   }
 
-  static async generateCarnet(playerId: number) {
-    const user = await this.findOne(playerId);
-    const result = await generateReport(user);
+  static async generateCarnet(playerId: number, sendEmail: boolean) {
+    const player = await this.findOne(playerId);
+    // const result = await generateReport(player);
+    const result = await cardRender(player);
+    if (sendEmail) {
+      await sendGridEmail();
+    }
     return result;
   }
 }

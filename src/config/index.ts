@@ -11,6 +11,8 @@ const config = {
   reportApi: process.env.REPORT_API!,
   reportUser: process.env.REPORT_USER!,
   reportPassword: process.env.REPORT_PASSWORD!,
+  sendgridApiKey: process.env.SENDGRID_API_KEY!,
+  sendgridEmail: process.env.SENDGRID_EMAIL!,
 };
 
 export default config;

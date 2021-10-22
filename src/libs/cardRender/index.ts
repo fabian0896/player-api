@@ -1,0 +1,52 @@
+import puppeteer from 'puppeteer';
+import Handlebars from 'handlebars';
+import fs from 'fs';
+import path from 'path';
+import { Player } from '.prisma/client';
+
+const phone = puppeteer.devices['iPhone 8 Plus'];
+
+const content = fs.readFileSync(
+  path.join(__dirname, 'templates', 'image.hbs'),
+  { encoding: 'utf-8' },
+);
+const template = Handlebars.compile(content);
+
+const cardRender = async (player: Player) => {
+  // ejecuto el template con los datos del player
+  const {
+    id,
+    firstName,
+    lastName,
+    eps,
+    cedula,
+  } = player;
+
+  const html = template({
+    id,
+    firstName,
+    lastName,
+    eps,
+    cedula,
+  });
+
+  // inicio el navegador
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+
+  // creo una pagina y emulo un iphone 8 plus
+  const page = await browser.newPage();
+  await page.emulate(phone);
+
+  // cargo mi contenido renderizado por handlebars en la pagina
+  await page.setContent(html, { waitUntil: 'load' });
+
+  // tomo screenshoot y lo guardo en jpeg calidad 100
+  const imageResult = await page.screenshot({ type: 'jpeg', quality: 100 });
+
+  // cierro el navegador
+  await browser.close();
+
+  return imageResult as Buffer;
+};
+
+export default cardRender;
