@@ -133,7 +133,7 @@ class PlayersService {
     }
   }
 
-  static async generateCarnet(playerId: number, sendEmail: boolean) {
+  static async generateCarnet(playerId: number, sendEmail: boolean = false) {
     const player = await this.findOne(playerId);
     // const result = await generateReport(player);
     const result = await cardRender(player);
