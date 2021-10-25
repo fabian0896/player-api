@@ -7,7 +7,7 @@ const birthday = Joi.date();
 const eps = Joi.string();
 const email = Joi.string().email();
 const picture = Joi.string().uri();
-const cedula = Joi.number().integer();
+const cedula = Joi.string();
 const phone = Joi.string();
 
 const page = Joi.number().integer().positive().min(1);

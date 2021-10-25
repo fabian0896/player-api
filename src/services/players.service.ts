@@ -11,7 +11,7 @@ export type PlayerCreate = {
   eps: string,
   email: string,
   picture?: string,
-  cedula: number,
+  cedula: string,
   phone: string,
 }
 
