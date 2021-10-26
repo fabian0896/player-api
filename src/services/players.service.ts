@@ -82,6 +82,27 @@ class PlayersService {
     return result;
   }
 
+  static async createWithImage(player: PlayerCreate, creatorId: number, images: Images) {
+    const result = await prisma.player.create({
+      data: {
+        ...player,
+        birthday: new Date(player.birthday),
+        creator: {
+          connect: {
+            id: creatorId,
+          },
+        },
+        images: {
+          create: images,
+        },
+      },
+      include: {
+        images: true,
+      },
+    });
+    return result;
+  }
+
   static async update(playerId:number, data: Partial<PlayerCreate>) {
     try {
       const player = await prisma.player.update({

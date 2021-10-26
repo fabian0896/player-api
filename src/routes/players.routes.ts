@@ -68,6 +68,8 @@ router.post('/',
 
 // add or update image of a player
 router.post('/:id/image',
+  passport.authenticate('jwt', { session: true }),
+  validateRole(['admin', 'editor']),
   validatorHandler(getPlayerSchema, 'params'),
   uploadHandler('image'),
   async (req, res, next) => {
@@ -82,6 +84,28 @@ router.post('/:id/image',
       const images = await reziseImage(req.file!.buffer);
       const updatedPlayer = await PlayersService.addImage(playerId, images);
       res.json(updatedPlayer);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.post('/image',
+  passport.authenticate('jwt', { session: false }),
+  validateRole(['admin', 'editor']),
+  uploadHandler('image'),
+  validatorHandler(createPlayerSchema, 'body'),
+  async (req, res, next) => {
+    if (!req.file) {
+      next(boom.badRequest('image is required'));
+      return;
+    }
+    try {
+      const data: PlayerCreate = req.body;
+      const payload: any = req.user!;
+      const creatorId = Number(payload.sub);
+      const images = await reziseImage(req.file.buffer);
+      const user = await PlayersService.createWithImage(data, creatorId, images);
+      res.status(201).json(user);
     } catch (error) {
       next(error);
     }
