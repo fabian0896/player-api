@@ -11,7 +11,7 @@ import './strategies/LocalStrategy';
 import './strategies/JwtStrategy';
 import './strategies/JwtRefreshStrategy';
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -23,11 +23,16 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(express.json());
 
+app.get('/', (_req, res) => {
+  res.send('Api working!');
+});
+
 setupRoutes(app);
 
 app.use(errorLogHandler);
 app.use(errorHandler);
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server listening on port ${port}`);
 });

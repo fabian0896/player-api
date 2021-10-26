@@ -12,6 +12,12 @@ passport.use(new LocalStrategy(
       done(boom.unauthorized(), false);
       return;
     }
+
+    if (!user.active) {
+      done(boom.unauthorized(), false);
+      return;
+    }
+
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) {
       done(boom.unauthorized(), false);

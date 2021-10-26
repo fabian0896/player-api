@@ -4,11 +4,42 @@ import boom from '@hapi/boom';
 import { User } from '@prisma/client';
 import AuthService from '../services/auth.service';
 import config from '../config';
-import { inviteUserSchema, signupSchema } from '../schemas/user.schema';
+import {
+  inviteUserSchema, signupSchema, updateUserSchema, getUserSchema,
+} from '../schemas/user.schema';
 import validatorHandler from '../middlewares/validate.handler';
 import validateRole from '../middlewares/validateRole.handler';
 
 const router = express.Router();
+
+router.get('/users',
+  passport.authenticate('jwt', { session: false }),
+  validateRole(['admin']),
+  async (req, res, next) => {
+    try {
+      const user: any = req.user!;
+      const users = await AuthService.findAll(Number(user.sub));
+      res.status(200).json(users);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+router.patch('/users/:id',
+  passport.authenticate('jwt', { session: false }),
+  validateRole(['admin']),
+  validatorHandler(getUserSchema, 'params'),
+  validatorHandler(updateUserSchema, 'body'),
+  (req, res, next) => {
+    const { id } = req.params;
+    const data = req.body;
+    try {
+      const user = AuthService.update(Number(id), data);
+      res.status(200).json(user);
+    } catch (error) {
+      next(error);
+    }
+  });
 
 router.post('/login',
   passport.authenticate('local', { session: false }),
