@@ -117,6 +117,28 @@ class PlayersService {
     }
   }
 
+  static async updateWithImage(playerId: number, player: Partial<PlayerCreate>, images: Images) {
+    try {
+      const result = await prisma.player.update({
+        where: {
+          id: playerId,
+        },
+        data: {
+          ...player,
+          images: {
+            update: images,
+          },
+        },
+        include: {
+          images: true,
+        },
+      });
+      return result;
+    } catch (error) {
+      throw boom.notFound('player not found');
+    }
+  }
+
   static async addImage(playerId: number, images: Images) {
     try {
       const player = await prisma.player.update({

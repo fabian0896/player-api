@@ -128,6 +128,28 @@ router.patch('/:id',
     }
   });
 
+router.patch('/:id/image',
+  passport.authenticate('jwt', { session: false }),
+  validateRole(['editor', 'admin']),
+  uploadHandler('image'),
+  validatorHandler(getPlayerSchema, 'params'),
+  validatorHandler(updatePlayerSchema, 'body'),
+  async (req, res, next) => {
+    if (!req.file) {
+      next(boom.badRequest('image is required'));
+      return;
+    }
+    try {
+      const data: Partial<PlayerCreate> = req.body;
+      const { id } = req.params;
+      const images = await reziseImage(req.file.buffer);
+      const user = await PlayersService.updateWithImage(Number(id), data, images);
+      res.status(201).json(user);
+    } catch (error) {
+      next(error);
+    }
+  });
+
 // generate carnet of a player
 router.get('/:id/carnet', async (req, res, next) => {
   const { id } = req.params;
