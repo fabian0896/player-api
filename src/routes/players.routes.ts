@@ -162,4 +162,17 @@ router.get('/:id/carnet', async (req, res, next) => {
   }
 });
 
+router.delete('/:id',
+  passport.authenticate('jwt', { session: false }),
+  validateRole(['admin', 'editor']),
+  validatorHandler(getPlayerSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const response = await PlayersService.destroy(Number(req.params.id));
+      res.json(response);
+    } catch (error) {
+      next(error);
+    }
+  });
+
 export default router;

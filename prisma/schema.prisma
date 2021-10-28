@@ -31,7 +31,7 @@ model Image {
   small String
   medium String
   large String
-  player Player @relation(fields: [playerId], references: [id])
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
   playerId Int @map("player_id")
 
   @@map("images")

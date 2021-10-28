@@ -185,6 +185,20 @@ class PlayersService {
     }
     return result;
   }
+
+  static async destroy(playerId: number) {
+    try {
+      const res = await prisma.player.delete({
+        where: {
+          id: playerId,
+        },
+      });
+      return res;
+    } catch (error) {
+      console.log('Error de eliminación ', error);
+      throw boom.notFound('player not found');
+    }
+  }
 }
 
 export default PlayersService;

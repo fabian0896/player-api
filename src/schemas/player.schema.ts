@@ -9,6 +9,7 @@ const email = Joi.string().email();
 const picture = Joi.string().uri();
 const cedula = Joi.string();
 const phone = Joi.string();
+const active = Joi.boolean();
 
 const page = Joi.number().integer().positive().min(1);
 const size = Joi.number()
@@ -26,6 +27,7 @@ export const createPlayerSchema = Joi.object({
   cedula: cedula.required(),
   phone: phone.required(),
   picture,
+  active,
 });
 
 export const updatePlayerSchema = Joi.object({
@@ -37,6 +39,7 @@ export const updatePlayerSchema = Joi.object({
   cedula,
   picture,
   phone,
+  active,
 });
 
 export const getPlayerSchema = Joi.object({
