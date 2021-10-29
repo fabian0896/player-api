@@ -66,10 +66,12 @@ class AuthService {
         },
       },
       select: {
+        id: true,
         name: true,
         role: true,
         email: true,
         avatar: true,
+        active: true,
         createdAt: true,
       },
     });

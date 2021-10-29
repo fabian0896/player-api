@@ -30,11 +30,11 @@ router.patch('/users/:id',
   validateRole(['admin']),
   validatorHandler(getUserSchema, 'params'),
   validatorHandler(updateUserSchema, 'body'),
-  (req, res, next) => {
+  async (req, res, next) => {
     const { id } = req.params;
     const data = req.body;
     try {
-      const user = AuthService.update(Number(id), data);
+      const user = await AuthService.update(Number(id), data);
       res.status(200).json(user);
     } catch (error) {
       next(error);
@@ -49,6 +49,7 @@ router.post('/login',
       res.cookie('x-refresh-token', data.refreshToken, {
         httpOnly: true,
         secure: config.env === 'production',
+        maxAge: 30 * 24 * 60 * 60 * 1000,
       });
       res.status(200).json(data);
     } catch (error) {
@@ -70,6 +71,7 @@ router.post('/token',
       res.cookie('x-refresh-token', data.refreshToken, {
         httpOnly: true,
         secure: config.env === 'production',
+        maxAge: 30 * 24 * 60 * 60 * 1000,
       });
       res.status(200).json(data);
     } catch (error) {
@@ -84,9 +86,9 @@ router.post('/logout',
       next(boom.unauthorized());
       return;
     }
-    res.cookie('x-refresh-token', '', {
-      httpOnly: true,
+    res.clearCookie('x-refresh-token', {
       secure: config.env === 'production',
+      httpOnly: true,
     });
     const payload = req.user as User;
     await AuthService.logout(Number(payload.id));
