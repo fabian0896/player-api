@@ -11,12 +11,7 @@ const cedula = Joi.string();
 const phone = Joi.string();
 const active = Joi.boolean();
 
-const page = Joi.number().integer().positive().min(1);
-const size = Joi.number()
-  .integer()
-  .positive()
-  .min(1)
-  .max(100);
+const cursor = Joi.number().integer().positive();
 
 export const createPlayerSchema = Joi.object({
   firstName: firstName.required(),
@@ -47,6 +42,5 @@ export const getPlayerSchema = Joi.object({
 });
 
 export const getPlayerPaginationSchema = Joi.object({
-  page,
-  size,
+  cursor,
 });

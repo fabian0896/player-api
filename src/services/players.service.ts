@@ -4,6 +4,12 @@ import prisma from '../libs/prisma';
 import cardRender from '../libs/cardRender';
 import sendGridEmail from '../libs/sendGrid';
 
+type CursorObject = {
+  cursor?: {
+    id: number,
+  }
+}
+
 export type PlayerCreate = {
   firstName: string,
   lastName: string,
@@ -22,12 +28,19 @@ type Images = {
 }
 
 class PlayersService {
-  static async findAll(page: number, size: number = 20) {
+  static async findAll(cursor?: number) {
+    const cursorObject: CursorObject = {};
+    if (cursor) {
+      cursorObject.cursor = {
+        id: cursor,
+      };
+    }
     const players = await prisma.player.findMany({
-      skip: (page - 1) * size,
-      take: size,
+      skip: cursor ? 1 : 0,
+      take: 20,
+      ...cursorObject,
       orderBy: {
-        createdAt: 'desc',
+        id: 'desc',
       },
       include: {
         images: {
@@ -39,7 +52,18 @@ class PlayersService {
         },
       },
     });
-    return players;
+
+    let myCursor: number | null = null;
+
+    if (!(players.length < 20)) {
+      const lastPlayerInResult = players[players.length - 1];
+      myCursor = lastPlayerInResult.id;
+    }
+
+    return {
+      data: players,
+      nextCursor: myCursor,
+    };
   }
 
   static async findOne(playerId: number) {
@@ -64,7 +88,9 @@ class PlayersService {
       throw boom.notFound('player not found');
     }
 
-    return player;
+    return {
+      data: player,
+    };
   }
 
   static async create(player: PlayerCreate, creatorId: number) {
@@ -177,9 +203,9 @@ class PlayersService {
   }
 
   static async generateCarnet(playerId: number, sendEmail: boolean = false) {
-    const player = await this.findOne(playerId);
+    const playerRes = await this.findOne(playerId);
     // const result = await generateReport(player);
-    const result = await cardRender(player);
+    const result = await cardRender(playerRes.data);
     if (sendEmail) {
       await sendGridEmail();
     }
@@ -195,7 +221,6 @@ class PlayersService {
       });
       return res;
     } catch (error) {
-      console.log('Error de eliminación ', error);
       throw boom.notFound('player not found');
     }
   }

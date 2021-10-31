@@ -23,10 +23,9 @@ router.get('/',
   validateRole(['admin', 'editor', 'reader']),
   validatorHandler(getPlayerPaginationSchema, 'query'),
   async (req, res, next) => {
-    const page = Number(req.query.page) || 1;
-    const size = Number(req.query.size) || 20;
+    const { cursor } = req.query;
     try {
-      const players = await PlayersService.findAll(page, size);
+      const players = await PlayersService.findAll(cursor ? Number(cursor) : undefined);
       res.status(200).json(players);
     } catch (error) {
       next(error);
