@@ -37,7 +37,7 @@ class PlayersService {
     }
     const players = await prisma.player.findMany({
       skip: cursor ? 1 : 0,
-      take: 20,
+      take: 15,
       ...cursorObject,
       orderBy: {
         id: 'desc',
@@ -53,9 +53,9 @@ class PlayersService {
       },
     });
 
-    let myCursor: number | null = null;
+    let myCursor: number | undefined;
 
-    if (!(players.length < 20)) {
+    if (players.length >= 15) {
       const lastPlayerInResult = players[players.length - 1];
       myCursor = lastPlayerInResult.id;
     }
