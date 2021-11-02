@@ -2,7 +2,7 @@ import boom from '@hapi/boom';
 import prisma from '../libs/prisma';
 // import generateReport from '../libs/jsreport';
 import cardRender from '../libs/cardRender';
-import sendGridEmail from '../libs/sendGrid';
+import Mailer from '../libs/nodeMailer';
 
 type CursorObject = {
   cursor?: {
@@ -26,6 +26,8 @@ type Images = {
   medium: string
   large: string
 }
+
+const mailer = new Mailer();
 
 class PlayersService {
   static async findAll(cursor?: number) {
@@ -203,13 +205,13 @@ class PlayersService {
   }
 
   static async generateCarnet(playerId: number, sendEmail: boolean = false) {
-    const playerRes = await this.findOne(playerId);
+    const { data: playerRes } = await this.findOne(playerId);
     // const result = await generateReport(player);
-    const result = await cardRender(playerRes.data);
+    const carnet = await cardRender(playerRes);
     if (sendEmail) {
-      await sendGridEmail();
+      await mailer.sendFile(playerRes.email, carnet);
     }
-    return result;
+    return carnet;
   }
 
   static async destroy(playerId: number) {

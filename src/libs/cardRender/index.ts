@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import Handlebars from 'handlebars';
+import Qrcode from 'qrcode';
 import fs from 'fs';
 import path from 'path';
 import { Player } from '.prisma/client';
@@ -22,12 +23,16 @@ const cardRender = async (player: Player) => {
     cedula,
   } = player;
 
+  // Genero el codigo qr del usuario.
+  const qrImage = await Qrcode.toDataURL(String(id), { width: 500, margin: 2 });
+
   const html = template({
     id,
     firstName,
     lastName,
     eps,
     cedula,
+    qrImage,
   });
 
   // inicio el navegador

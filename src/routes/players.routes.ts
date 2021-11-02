@@ -150,16 +150,24 @@ router.patch('/:id/image',
   });
 
 // generate carnet of a player
-router.get('/:id/carnet', async (req, res, next) => {
-  const { id } = req.params;
-  try {
-    const carnet = await PlayersService.generateCarnet(Number(id));
-    const readeble = Readable.from(carnet);
-    readeble.pipe(res);
-  } catch (error) {
-    next(error);
-  }
-});
+router.get('/:id/carnet',
+  passport.authenticate('jwt', { session: false }),
+  validateRole(['admin', 'editor']),
+  async (req, res, next) => {
+    const { id } = req.params;
+    const { send } = req.query;
+    try {
+      const carnet = await PlayersService.generateCarnet(
+        Number(id),
+        Boolean(Number(send)),
+      );
+      const readeble = Readable.from(carnet);
+      res.type('jpeg');
+      readeble.pipe(res);
+    } catch (error) {
+      next(error);
+    }
+  });
 
 router.delete('/:id',
   passport.authenticate('jwt', { session: false }),

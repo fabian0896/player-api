@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import boom from '@hapi/boom';
 import bcrypt from 'bcrypt';
 
+import Mailer from '../libs/nodeMailer';
 import prisma from '../libs/prisma';
 import config from '../config';
 
@@ -11,6 +12,8 @@ type UpdateData = {
   role: 'admin' | 'reader' | 'editor',
   active: boolean,
 };
+
+const mailer = new Mailer();
 
 class AuthService {
   static generateImage(id: number | string) {
@@ -137,6 +140,7 @@ class AuthService {
     }
 
     const token = jwt.sign({ role, email }, config.jwtInviteSecret, { expiresIn: '15min' });
+    await mailer.sendInvite(email, token);
     return token;
   }
 
