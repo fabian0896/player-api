@@ -209,7 +209,10 @@ class PlayersService {
     // const result = await generateReport(player);
     const carnet = await cardRender(playerRes);
     if (sendEmail) {
-      await mailer.sendFile(playerRes.email, carnet);
+      await mailer.sendFile(playerRes.email, carnet, {
+        firstName: playerRes.firstName,
+        lastName: playerRes.lastName,
+      });
     }
     return carnet;
   }
