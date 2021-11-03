@@ -131,4 +131,32 @@ router.post('/signup',
     }
   });
 
+router.post('/start-reset', async (req, res) => {
+  const { email } = req.body;
+  try {
+    await AuthService.startResetPassword(email);
+    res.json({
+      message: 'email send',
+    });
+  } catch (error) {
+    res.json({
+      message: 'email send',
+    });
+  }
+});
+
+router.post('/reset', async (req, res) => {
+  const { password, token } = req.body;
+  try {
+    await AuthService.resetPassword(token, password);
+    res.json({
+      message: 'password changed',
+    });
+  } catch (error) {
+    res.json({
+      message: 'password changed',
+    });
+  }
+});
+
 export default router;

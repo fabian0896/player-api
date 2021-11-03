@@ -179,6 +179,50 @@ class AuthService {
       throw boom.unauthorized(error.message);
     }
   }
+
+  static async startResetPassword(email: string) {
+    try {
+      const token = jwt.sign({ email }, config.jwtResetSecret, { expiresIn: '10min' });
+      const user = await prisma.user.update({
+        where: {
+          email,
+        },
+        data: {
+          resetToken: token,
+        },
+      });
+      // TODO: enviar el email al usuario
+      await mailer.sendReset(email, token, {
+        name: user.name || '',
+      });
+      return user;
+    } catch (error) {
+      throw boom.notFound('email not found');
+    }
+  }
+
+  static async resetPassword(token: string, password: string) {
+    const payload: any = jwt.verify(token, config.jwtResetSecret);
+    const user = await prisma.user.findUnique({
+      where: { email: payload.email },
+    });
+    if (!user) {
+      throw boom.notFound('user not found');
+    }
+
+    if (user.resetToken !== token) {
+      throw boom.badRequest('invalid token');
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const updatedUser = await prisma.user.update({
+      where: { email: payload.email },
+      data: { password: hashedPassword, resetToken: '' },
+    });
+
+    return updatedUser;
+  }
 }
 
 export default AuthService;

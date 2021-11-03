@@ -15,6 +15,7 @@ model User {
   email String @unique
   password String
   refreshToken String? @map("refresh_token")
+  resetToken String? @map("reset_token")
   name String?
   role Role
   avatar String?

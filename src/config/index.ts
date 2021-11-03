@@ -15,6 +15,7 @@ const config = {
   sendgridEmail: process.env.SENDGRID_EMAIL!,
   emailUser: process.env.EMAIL_USER!,
   emailPassword: process.env.EMAIL_PASSWORD!,
+  jwtResetSecret: process.env.JWT_RESET_SECRET!,
 };
 
 export default config;

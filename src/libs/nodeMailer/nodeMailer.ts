@@ -14,8 +14,14 @@ const carnetHtml = fs.readFileSync(
   { encoding: 'utf-8' },
 );
 
+const resetHtml = fs.readFileSync(
+  path.join(__dirname, 'templates', 'reset_pass.hbs'),
+  { encoding: 'utf-8' },
+);
+
 const inviteTemplate = Handlebars.compile(inviteHtml);
 const carnetTemplate = Handlebars.compile(carnetHtml);
+const resetTemplate = Handlebars.compile(resetHtml);
 
 class Mailer {
   transporter: nodemailer.Transporter;
@@ -40,7 +46,7 @@ class Mailer {
       from: `Fabian de la liga vallecaucana <${config.emailUser}>`,
       to: email,
       subject: 'Invitación de registro',
-      text: `http://localhost:4000/signup?token=${token}`,
+      text: `http://localhost:3000/signup?token=${token}`,
       html: template,
     });
     return info;
@@ -63,6 +69,25 @@ class Mailer {
           content: file,
         },
       ],
+    });
+    return info;
+  }
+
+  async sendReset(
+    email: string,
+    token: string,
+    extraInfo?: { name: string },
+  ) {
+    const template = resetTemplate({
+      name: extraInfo?.name.toUpperCase(),
+      resetUrl: `http://localhost:3000/reset?token=${token}`,
+    });
+    const info = await this.transporter.sendMail({
+      from: `Fabian de la liga vallecaucana <${config.emailUser}>`,
+      to: email,
+      subject: 'Recupera tu cuenta',
+      text: `http://localhost:3000/reset?token=${token}`,
+      html: template,
     });
     return info;
   }
