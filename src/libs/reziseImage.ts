@@ -16,7 +16,7 @@ const reziseImage = async (image: Buffer) => {
 
   // rezise all the images
   const [smallImage, mediumImage, largeImage] = await Promise.all([
-    sharpImage.resize(200).toBuffer(),
+    sharpImage.resize(100).toBuffer(),
     sharpImage.resize(500).toBuffer(),
     sharpImage.resize(1000).toBuffer(),
   ]);

@@ -30,17 +30,45 @@ type Images = {
 const mailer = new Mailer();
 
 class PlayersService {
-  static async findAll(cursor?: number) {
+  static async findAll(size: number = 15, cursor?: number, query?: string) {
     const cursorObject: CursorObject = {};
+    const queryObject: { where?: any } = {};
     if (cursor) {
       cursorObject.cursor = {
         id: cursor,
       };
     }
+
+    if (query) {
+      queryObject.where = {
+        OR: [
+          {
+            firstName: {
+              contains: query,
+              mode: 'insensitive',
+            },
+          },
+          {
+            lastName: {
+              contains: query,
+              mode: 'insensitive',
+            },
+          },
+          {
+            cedula: {
+              contains: query,
+              mode: 'insensitive',
+            },
+          },
+        ],
+      };
+    }
+
     const players = await prisma.player.findMany({
       skip: cursor ? 1 : 0,
-      take: 15,
+      take: size,
       ...cursorObject,
+      ...queryObject,
       orderBy: {
         id: 'desc',
       },

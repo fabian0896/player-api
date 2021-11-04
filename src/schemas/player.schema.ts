@@ -12,6 +12,8 @@ const phone = Joi.string();
 const active = Joi.boolean();
 
 const cursor = Joi.number().integer().positive();
+const size = Joi.number().integer().positive();
+const query = Joi.string();
 
 export const createPlayerSchema = Joi.object({
   firstName: firstName.required(),
@@ -43,4 +45,6 @@ export const getPlayerSchema = Joi.object({
 
 export const getPlayerPaginationSchema = Joi.object({
   cursor,
+  size,
+  query,
 });
