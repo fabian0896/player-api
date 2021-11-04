@@ -85,7 +85,7 @@ class PlayersService {
 
     let myCursor: number | undefined;
 
-    if (players.length >= 15) {
+    if (players.length >= size) {
       const lastPlayerInResult = players[players.length - 1];
       myCursor = lastPlayerInResult.id;
     }
@@ -182,7 +182,10 @@ class PlayersService {
         data: {
           ...player,
           images: {
-            update: images,
+            upsert: {
+              create: images,
+              update: images,
+            },
           },
         },
         include: {
