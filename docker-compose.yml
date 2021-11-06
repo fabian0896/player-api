@@ -13,9 +13,3 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: fabian0896@outlook.com
       PGADMIN_DEFAULT_PASSWORD: fabian08
-  mysql:
-    image: mysql
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: example
