@@ -45,19 +45,19 @@ class PlayersService {
           {
             firstName: {
               contains: query,
-              mode: 'insensitive',
+              // mode: 'insensitive',
             },
           },
           {
             lastName: {
               contains: query,
-              mode: 'insensitive',
+              // mode: 'insensitive',
             },
           },
           {
             cedula: {
               contains: query,
-              mode: 'insensitive',
+              // mode: 'insensitive',
             },
           },
         ],
