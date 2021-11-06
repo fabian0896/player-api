@@ -3,7 +3,7 @@ import Handlebars from 'handlebars';
 import Qrcode from 'qrcode';
 import fs from 'fs';
 import path from 'path';
-import { Player } from '.prisma/client';
+import { Player, Image } from '.prisma/client';
 
 const phone = puppeteer.devices['iPhone 8 Plus'];
 
@@ -13,7 +13,7 @@ const content = fs.readFileSync(
 );
 const template = Handlebars.compile(content);
 
-const cardRender = async (player: Player) => {
+const cardRender = async (player: Player & {images: Image | null}) => {
   // ejecuto el template con los datos del player
   const {
     id,
@@ -21,6 +21,7 @@ const cardRender = async (player: Player) => {
     lastName,
     eps,
     cedula,
+    images,
   } = player;
 
   // Genero el codigo qr del usuario.
@@ -33,6 +34,7 @@ const cardRender = async (player: Player) => {
     eps,
     cedula,
     qrImage,
+    profileImage: images?.large,
   });
 
   // inicio el navegador

@@ -16,6 +16,7 @@ const config = {
   emailUser: process.env.EMAIL_USER!,
   emailPassword: process.env.EMAIL_PASSWORD!,
   jwtResetSecret: process.env.JWT_RESET_SECRET!,
+  frontendUrl: process.env.FRONTEND_URL!,
 };
 
 export default config;

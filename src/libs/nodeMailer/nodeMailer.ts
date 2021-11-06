@@ -43,10 +43,10 @@ class Mailer {
       inviteUrl: token,
     });
     const info = await this.transporter.sendMail({
-      from: `Fabian de la liga vallecaucana <${config.emailUser}>`,
+      from: `Liga Vallecaucana de Baloncesto <${config.emailUser}>`,
       to: email,
       subject: 'Invitación de registro',
-      text: `http://localhost:3000/signup?token=${token}`,
+      text: `${config.frontendUrl}/signup?token=${token}`,
       html: template,
     });
     return info;
@@ -58,7 +58,7 @@ class Mailer {
       lastName: extraInfo?.lastName.toUpperCase(),
     });
     const info = await this.transporter.sendMail({
-      from: `Fabian de la Liga Vallecaucana <${config.emailUser}>`,
+      from: `Liga Vallecaucana de Baloncesto <${config.emailUser}>`,
       to: email,
       subject: 'Carnet Liga Vallecaucana de Baloncesto',
       text: 'Adjuntamos el carnet de registro de la liga vallecaucana de baloncesto',
@@ -80,13 +80,13 @@ class Mailer {
   ) {
     const template = resetTemplate({
       name: extraInfo?.name.toUpperCase(),
-      resetUrl: `http://localhost:3000/reset?token=${token}`,
+      resetUrl: `${config.frontendUrl}/reset?token=${token}`,
     });
     const info = await this.transporter.sendMail({
-      from: `Fabian de la liga vallecaucana <${config.emailUser}>`,
+      from: `Liga Vallecaucana de Baloncesto <${config.emailUser}>`,
       to: email,
       subject: 'Recupera tu cuenta',
-      text: `http://localhost:3000/reset?token=${token}`,
+      text: `${config.frontendUrl}/reset?token=${token}`,
       html: template,
     });
     return info;
